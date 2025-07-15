@@ -84,7 +84,6 @@ pip install -r requirements.txt
 ```
 
 ## Compilando um arquivo
-# Compilação Bem-Sucedida
 
 ```bash
 python src/main.py casos-de-teste/entradas/entrada08.txt -o saida08.sql --dialect postgres
