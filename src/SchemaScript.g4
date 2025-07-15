@@ -20,7 +20,6 @@ bloco_insercao: 'inserir' 'em' ID '{' linha_dados (',' linha_dados)* '}';
 linha_dados: '(' atribuicao (',' atribuicao)* ')';
 atribuicao: ID ':' valor;
 
-// CORREÇÃO AQUI: A cláusula 'definir' agora usa 'condicao' em vez de 'atribuicao'
 declaracao_atualizacao:
     'atualizar' ID 'definir' condicao (',' condicao)* 'onde' condicao ';';
 
