@@ -1,0 +1,24 @@
+// Arquivo de exemplo com a nova sintaxe em português
+
+criar tabela Categoria {
+    id: chave;
+    nome: texto(100) unico obrigatorio;
+}
+
+criar tabela Produto {
+    id: chave;
+    nome: texto(255) obrigatorio;
+    preco: inteiro obrigatorio;
+    categoria_id: chave_estrangeira(Categoria);
+}
+
+inserir em Categoria {
+    (nome: 'Eletrônicos'),
+    (nome: 'Livros')
+}
+
+inserir em Produto {
+    (nome: 'Smart TV 50 polegadas', preco: 350000, categoria_id: 1),
+    (nome: 'O Senhor dos Anéis', preco: 12000, categoria_id: 2),
+    (nome: 'Fone de Ouvido Bluetooth', preco: 25000, categoria_id: 1)
+}

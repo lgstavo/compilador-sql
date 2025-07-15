@@ -1,0 +1,20 @@
+// Tabela válida, mas sem nenhum atributo.
+// Teste: O gerador de código deve criar uma tabela vazia.
+criar tabela LogsDeAcesso {
+
+}
+
+// Bloco de inserção válido, mas sem nenhuma linha de dados.
+// Teste: O gerador de código não deve gerar nenhum INSERT para este bloco.
+inserir em LogsDeAcesso {
+    
+}
+
+// Tabela com nomes de atributos que são palavras-chave do SQL.
+// Teste: Isso pode gerar um SQL inválido se os nomes não forem "escapados".
+// É uma limitação conhecida do nosso compilador atual, bom para documentar.
+criar tabela TesteKeywords {
+    id: chave;
+    select: texto(10); // 'select' é uma palavra-chave do SQL
+    from: texto(10);   // 'from' também é
+}

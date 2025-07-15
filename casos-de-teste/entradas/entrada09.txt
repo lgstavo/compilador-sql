@@ -1,0 +1,20 @@
+// 1. Cria a estrutura e insere dados iniciais
+criar tabela Funcionarios {
+    id: chave;
+    nome: texto(150) obrigatorio;
+    cargo: texto(100) padrao 'Colaborador';
+    salario: inteiro;
+}
+
+inserir em Funcionarios {
+    (id: 1, nome: 'Beatriz', salario: 500000),
+    (id: 2, nome: 'Carlos', cargo: 'Analista', salario: 650000)
+}
+
+// 2. Executa as operações de atualização
+atualizar Funcionarios definir salario = 550000 onde id = 1;
+
+atualizar Funcionarios definir cargo = 'Analista Sênior', salario = 720000 onde id = 2;
+
+// 3. Exemplo de um erro semântico que seria pego
+// atualizar Funcionarios definir status = 'ativo' onde id = 1; // ERRO: coluna 'status' não existe.

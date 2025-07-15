@@ -1,0 +1,8 @@
+Erros de compilação encontrados:
+=================================
+- Erro de Sintaxe (linha 2:6): missing 'tabela' at 'Usuario'
+- Erro de Sintaxe (linha 9:4): extraneous input 'preco' expecting {';', 'obrigatorio', 'unico', 'padrao'}
+- Erro de Sintaxe (linha 14:17): mismatched input 'padrao' expecting {'chave_estrangeira', NOME_TIPO}
+- Erro de Sintaxe (linha 14:26): extraneous input 'inteiro' expecting {<EOF>, 'criar', '}', ';', 'obrigatorio', 'unico', 'padrao', 'inserir', 'atualizar', ID}
+- Erro de Sintaxe (linha 19:4): missing '(' at 'nome'
+- Erro de Sintaxe (linha 20:0): mismatched input '}' expecting {')', ','}

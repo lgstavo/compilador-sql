@@ -1,0 +1,23 @@
+criar tabela Funcionario {
+    id: chave;
+    nome: texto(150) obrigatorio;
+    // Erro: O atributo 'email' está duplicado nesta tabela.
+    email: texto(100) unico;
+    email: texto(120); 
+}
+
+// Erro: A tabela 'Funcionario' está sendo definida novamente.
+criar tabela Funcionario {
+    matricula: texto(20);
+}
+
+criar tabela Departamento {
+    id: chave;
+    // Erro: A chave estrangeira aponta para uma tabela ('Setor') que não existe.
+    setor_id: chave_estrangeira(Setor);
+}
+
+inserir em Funcionario {
+    // Erro: O atributo 'cargo' não foi definido na tabela 'Funcionario'.
+    (nome: 'Carlos', email: 'carlos@empresa.com', cargo: 'Desenvolvedor')
+}

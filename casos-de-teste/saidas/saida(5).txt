@@ -1,0 +1,5 @@
+Erros de compilação encontrados:
+=================================
+- Erro Semântico (linha 5): A tabela 'Locais' referenciada na chave estrangeira não foi definida.
+- Erro Semântico (linha 17): O atributo 'data' não existe na tabela 'Eventos'.
+- Erro Semântico (linha 22): A tabela 'Inscricoes' usada no bloco 'inserir' não foi definida.

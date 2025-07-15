@@ -1,0 +1,35 @@
+// A tabela 'Postagens' é definida antes de 'Autores', testando a referência antecipada.
+criar tabela Postagens {
+    id: chave;
+    conteudo: texto(280) obrigatorio;
+    data_postagem: datahora padrao agora;
+    autor_id: chave_estrangeira(Autores);
+}
+
+// Tabela associativa para um relacionamento N:N (um autor segue vários outros)
+criar tabela Seguidores {
+    seguidor_id: chave_estrangeira(Autores);
+    seguindo_id: chave_estrangeira(Autores);
+}
+
+criar tabela Autores {
+    id: chave;
+    nome_usuario: texto(50) unico obrigatorio;
+}
+
+inserir em Autores {
+    (nome_usuario: 'daniel_luc'),
+    (nome_usuario: 'aluno_compiladores'),
+    (nome_usuario: 'dev_antlr')
+}
+
+inserir em Postagens {
+    (conteudo: 'Acabei de refatorar minha linguagem!', autor_id: 2),
+    (conteudo: 'Bugs são apenas quebra-cabeças inesperados.', autor_id: 3)
+}
+
+// O autor 2 ('aluno_compiladores') segue o autor 1 ('daniel_luc') e o 3 ('dev_antlr').
+inserir em Seguidores {
+    (seguidor_id: 2, seguindo_id: 1),
+    (seguidor_id: 2, seguindo_id: 3)
+}

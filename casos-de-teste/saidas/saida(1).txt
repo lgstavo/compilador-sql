@@ -1,0 +1,6 @@
+Erros de compilação encontrados:
+=================================
+- Erro Semântico (linha 10): A tabela 'Funcionario' já foi declarada.
+- Erro Semântico (linha 6): O atributo 'email' já foi declarado na tabela 'Funcionario'.
+- Erro Semântico (linha 17): A tabela 'Setor' referenciada na chave estrangeira não foi definida.
+- Erro Semântico (linha 22): O atributo 'cargo' não existe na tabela 'Funcionario'.

@@ -1,0 +1,3 @@
+Erros de compilação encontrados:
+=================================
+- Erro de Sintaxe (linha 11:0): mismatched input '}' expecting '('

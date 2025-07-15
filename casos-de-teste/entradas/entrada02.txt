@@ -1,0 +1,20 @@
+// Erro: Faltou a palavra-chave 'tabela'
+criar Usuario {
+    id: chave;
+}
+
+criar tabela Produto {
+    // Erro: Faltou o ';' no final da linha
+    nome: texto(100) obrigatorio
+    preco: inteiro;
+}
+
+criar tabela Pedido {
+    // Erro: O valor padrão vem depois do nome do atributo e tipo
+    valor_total: padrao 0 inteiro;
+}
+
+// Erro: Parênteses faltando na linha de dados do 'inserir'
+inserir em Categoria {
+    nome: 'Teste'
+}

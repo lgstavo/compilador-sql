@@ -1,0 +1,13 @@
+criar tabela Configuracoes {
+    id: chave;
+    chave_config: texto(50) unico obrigatorio;
+    valor_config: texto obrigatorio;
+    ultima_modificacao: datahora padrao agora;
+    ativo: inteiro padrao 1; // Usando 1 para 'true'
+}
+
+inserir em Configuracoes {
+    (chave_config: 'NOME_DO_SITE', valor_config: 'Meu Compilador Incrível'),
+    // Apenas as colunas obrigatórias são fornecidas, as outras usarão o padrão.
+    (chave_config: 'MODO_DEBUG', valor_config: 'desativado')
+}

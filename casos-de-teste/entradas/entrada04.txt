@@ -1,0 +1,39 @@
+// Um esquema mais completo para um sistema de gerenciamento de projetos.
+
+criar tabela Usuarios {
+    id: chave;
+    nome_completo: texto(200) obrigatorio;
+    email: texto(150) unico obrigatorio;
+    data_cadastro: datahora padrao agora;
+}
+
+criar tabela Projetos {
+    id: chave;
+    titulo: texto(255) obrigatorio;
+    descricao: texto;
+    data_inicio: datahora;
+    gerente_id: chave_estrangeira(Usuarios);
+}
+
+criar tabela Tarefas {
+    id: chave;
+    titulo: texto(255) obrigatorio;
+    status: texto(50) padrao 'Pendente';
+    projeto_id: chave_estrangeira(Projetos);
+}
+
+inserir em Usuarios {
+    (nome_completo: 'Ana Pereira', email: 'ana.p@email.com'),
+    (nome_completo: 'Bruno Costa', email: 'bruno.c@email.com')
+}
+
+inserir em Projetos {
+    (titulo: 'Desenvolvimento do Novo Compilador', descricao: 'Projeto final da disciplina.', gerente_id: 1),
+    (titulo: 'Documentação do Usuário', gerente_id: 2)
+}
+
+inserir em Tarefas {
+    (titulo: 'Definir a Gramática', status: 'Concluído', projeto_id: 1),
+    (titulo: 'Implementar o Gerador de Código', status: 'Em Andamento', projeto_id: 1),
+    (titulo: 'Escrever o README', status: 'Pendente', projeto_id: 2)
+}
