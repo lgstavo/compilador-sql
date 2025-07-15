@@ -61,6 +61,11 @@ Geração de código SQL otimizado para os principais SGBDs:
 
 Antes de executar o compilador, gere os arquivos do ANTLR com base na gramática `SchemaScript.g4`:
 
+
+```bash
+java -jar antlr-4.13.2-complete.jar -Dlanguage=Python3 src/SchemaScript.g4 -visitor -o src/generated
+```
+
 ### Como executar
 
 ```bash
@@ -76,7 +81,13 @@ source venv/bin/activate
 
 # Instale as dependências
 pip install -r requirements.txt
+```
 
+## Compilando um arquivo
+# Compilação Bem-Sucedida
 
 ```bash
-java -jar antlr-4.13.2-complete.jar -Dlanguage=Python3 src/SchemaScript.g4 -visitor -o src/generated
+python src/main.py casos-de-teste/entradas/entrada08.txt -o saida08.sql --dialect postgres
+```
+
+
