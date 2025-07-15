@@ -15,9 +15,6 @@ def main():
     arg_parser.add_argument('--dialect', default='sqlite', choices=['sqlite', 'mysql', 'postgres'], help='O dialeto SQL a ser gerado.')
     args = arg_parser.parse_args()
 
-    # --- LÓGICA DE DIRETÓRIO DE SAÍDA REMOVIDA ---
-    # As linhas que criavam a pasta 'casos-de-teste/saidas/' foram removidas.
-
     erros_compilacao = []
 
     try:
@@ -43,7 +40,6 @@ def main():
 
     if erros_compilacao:
         contador = 1
-        # ALTERAÇÃO: O nome do arquivo agora não inclui o caminho da pasta.
         log_filename = f"saida({contador}).txt"
         while os.path.exists(log_filename):
             contador += 1
@@ -61,7 +57,6 @@ def main():
         generated_sql = code_generator.visit(tree)
         
         if args.output:
-            # ALTERAÇÃO: Salva diretamente no nome do arquivo fornecido, sem adicionar pastas.
             try:
                 with open(args.output, "w", encoding="utf-8") as f:
                     f.write(generated_sql)
