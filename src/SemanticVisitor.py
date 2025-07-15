@@ -15,8 +15,6 @@ class SemanticVisitor(SchemaScriptVisitor):
             self.errors.append(message)
 
     def visitSchema(self, ctx:SchemaScriptParser.SchemaContext):
-        # Passo 1: Coleta apenas os nomes das tabelas para criar o mapa do schema
-        # e checar por nomes de tabelas duplicados.
         for declaracao in ctx.declaracao():
             if isinstance(declaracao.getChild(0), SchemaScriptParser.Definicao_tabelaContext):
                 tabela_ctx = declaracao.getChild(0)
@@ -26,7 +24,6 @@ class SemanticVisitor(SchemaScriptVisitor):
                 else:
                     self.tabela_simbolos[nome_tabela] = set()
         
-        # Passo 2: Faz uma visita completa para todas as outras validações.
         for declaracao in ctx.declaracao():
             self.visit(declaracao)
         
@@ -40,8 +37,7 @@ class SemanticVisitor(SchemaScriptVisitor):
                 else:
                     self.tabela_simbolos[nome_tabela].add(nome_attr)
         
-        # CORREÇÃO FINAL: Instruímos o visitante a continuar a análise
-        # para dentro dos atributos, o que ativará a checagem de chave estrangeira.
+       
         return self.visitChildren(ctx)
     
     def visitTipo_chave_estrangeira(self, ctx:SchemaScriptParser.Tipo_chave_estrangeiraContext):
